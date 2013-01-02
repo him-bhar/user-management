@@ -39,4 +39,28 @@ public interface IManager {
 	 * @param privilege
 	 */
 	public void updateNewPrivilege (Privilege privilege);
+	/**
+	 * This method is used to map a new Role to a User
+	 * @param user
+	 * @param role
+	 */
+	public void mapNewRoleToUser (User user, Role role);
+	/**
+	 * This method is used to map a new Privilege to Role
+	 * @param role
+	 * @param privilege
+	 */
+	public void mapNewPrivilegeToRole (Role role, Privilege privilege);
+	/**
+	 * This method is used to Delete a Role from a User
+	 * @param user
+	 * @param role
+	 */
+	public void deleteUserRole (User user, Role role);
+	/**
+	 * This method is used to Delete a Privilege from a Role
+	 * @param role
+	 * @param privlege
+	 */
+	public void deleteRolePrivilege (Role role, Privilege privilege);
 }

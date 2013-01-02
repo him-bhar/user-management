@@ -1,4 +1,4 @@
-package com.himanshu.um.impl.roleusermapping.db;
+package com.himanshu.um.impl.privilegeusermapping.db;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,33 +10,26 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+import com.himanshu.um.impl.privileges.db.Privilege;
 import com.himanshu.um.impl.role.db.Role;
-import com.himanshu.um.impl.user.db.User;
 
 @TableGenerator(name="tab", initialValue=0, allocationSize=1)
 @Entity
-@Table (name = "role_user_mapping")
-public class RoleUserMapper {
+@Table (name = "privilege_role_mapping")
+public class PrivilegeRoleMapping {
+
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="tab")
 	@Id
 	@Column (name="id")
 	private long id;
 
+	@ManyToOne
+    @JoinColumn(name="privilege_id")
+	private Privilege privilege;
 
-    @ManyToOne
-    @JoinColumn(name="user_id")
-	private User user;
-
-    @ManyToOne
+	@ManyToOne
     @JoinColumn(name="role_id")
 	private Role role;
-
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	public long getId() {
 		return id;
@@ -44,11 +37,17 @@ public class RoleUserMapper {
 	public void setId(long id) {
 		this.id = id;
 	}
-
+	public Privilege getPrivilege() {
+		return privilege;
+	}
+	public void setPrivilege(Privilege privilege) {
+		this.privilege = privilege;
+	}
 	public Role getRole() {
 		return role;
 	}
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
 }

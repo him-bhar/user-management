@@ -5,7 +5,7 @@ import com.himanshu.um.api.privileges.Privilege;
 import com.himanshu.um.api.role.Role;
 import com.himanshu.um.api.user.User;
 
-public class ManagerImpl implements IManager {
+public class DatabaseManagerImpl implements IManager {
 
 	@Override
 	public void addNewUser(User user) {
@@ -39,6 +39,30 @@ public class ManagerImpl implements IManager {
 
 	@Override
 	public void updateNewPrivilege(Privilege privilege) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mapNewRoleToUser(User user, Role role) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mapNewPrivilegeToRole(Role role, Privilege privilege) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deleteUserRole(User user, Role role) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deleteRolePrivilege(Role role, Privilege privilege) {
 		// TODO Auto-generated method stub
 
 	}

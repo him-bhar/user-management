@@ -13,13 +13,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+import com.himanshu.um.api.extensions.RoleInterface;
+import com.himanshu.um.impl.privileges.db.Privilege;
+import com.himanshu.um.impl.privilegeusermapping.db.PrivilegeRoleMapping;
 import com.himanshu.um.impl.roleusermapping.db.RoleUserMapper;
 import com.himanshu.um.impl.user.db.User;
 
 @TableGenerator(name="tab", initialValue=0, allocationSize=1)
 @Entity
 @Table (name = "role")
-public class Role {
+public class Role implements RoleInterface {
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="tab")
 	@Id
 	@Column(name = "id")
@@ -31,6 +34,10 @@ public class Role {
 
 	@OneToMany(mappedBy="role", cascade=CascadeType.ALL)
 	private Set<RoleUserMapper> roleUserMapper = new HashSet<RoleUserMapper>();
+
+	@OneToMany(mappedBy="role", cascade=CascadeType.ALL)
+	private Set<PrivilegeRoleMapping> privilegeRoleMapper = new HashSet<PrivilegeRoleMapping>();
+
 
 	public long getId() {
 		return id;
@@ -62,6 +69,13 @@ public class Role {
 		mapper.setUser(u);
 		mapper.setRole(this);
 		roleUserMapper.add(mapper);
+	}
+
+	public void addPrivilegeMapping(Privilege p) {
+		PrivilegeRoleMapping mapping = new PrivilegeRoleMapping();
+		mapping.setRole(this);
+		mapping.setPrivilege(p);
+		privilegeRoleMapper.add(mapping);
 	}
 
 }

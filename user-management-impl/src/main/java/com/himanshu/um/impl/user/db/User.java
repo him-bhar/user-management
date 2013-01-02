@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+import com.himanshu.um.api.extensions.UserInterface;
 import com.himanshu.um.impl.role.db.Role;
 import com.himanshu.um.impl.roleusermapping.db.RoleUserMapper;
 
@@ -24,7 +25,7 @@ import com.himanshu.um.impl.roleusermapping.db.RoleUserMapper;
 @TableGenerator(name="tab", initialValue=0, allocationSize=1)
 @Entity
 @Table (name = "user")
-public class User {
+public class User implements UserInterface {
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="tab")
 	@Id
 	@Column (name="id")
