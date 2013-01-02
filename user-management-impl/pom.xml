@@ -24,7 +24,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>${junit-version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -41,14 +41,13 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- QuartzJobBean in spring-context-support.jar -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- Spring + Quartz need transaction -->
+		<!-- Spring need transaction -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
@@ -58,36 +57,43 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.1.7.Final</version>
+			<version>${hibernate-em-version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.21</version>
+			<version>${mysql-connector-version}</version>
 		</dependency>
-
-		<!-- Quartz framework -->
-		<!--<dependency> <groupId>org.quartz-scheduler</groupId> <artifactId>quartz</artifactId> 
-			<version>${quartz-version}</version> </dependency> -->
-
-		<!--<dependency> <groupId>org.apache.mina</groupId> <artifactId>mina-core</artifactId> 
-			<version>2.0.6</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>1.1.0.RELEASE</version>
+			<version>${spring-data-jpa-version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
-			<version>2.2</version>
+			<version>${cglib-version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.himanshu.usermanagement</groupId>
+			<artifactId>um-api</artifactId>
+			<version>${um-api-version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<properties>
 		<spring.version>3.1.2.RELEASE</spring.version>
 		<quartz-version>1.8.6</quartz-version>
+		<spring-data-jpa-version>1.1.0.RELEASE</spring-data-jpa-version>
+		<um-api-version>1.0-SNAPSHOT</um-api-version>
+		<cglib-version>2.2</cglib-version>
+		<mysql-connector-version>5.1.21</mysql-connector-version>
+		<hibernate-em-version>4.1.7.Final</hibernate-em-version>
+		<junit-version>3.8.1</junit-version>
 	</properties>
 </project>
