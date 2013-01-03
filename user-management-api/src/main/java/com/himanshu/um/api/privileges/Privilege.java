@@ -1,20 +1,23 @@
 package com.himanshu.um.api.privileges;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * @author himanshu
  *
  */
+@XmlRootElement
 public class Privilege {
-	private long id;
+	//private long id;
 	private String privilegeName;
 	private boolean status;
-	
-	public long getId() {
+
+	/*public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
+	}*/
 	public boolean isStatus() {
 		return status;
 	}

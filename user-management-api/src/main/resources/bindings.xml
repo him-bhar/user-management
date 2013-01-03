@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               jaxb:version="2.0">
+
+  <jaxb:bindings schemaLocation="user.xsd"  node="/xsd:schema">
+    <jaxb:schemaBindings>
+      <jaxb:package name="com.himanshu.api.user.test"/>
+    </jaxb:schemaBindings>
+  </jaxb:bindings>
+
+<!--   <jaxb:bindings schemaLocation="role.xsd"  node="/xsd:schema"> -->
+<!--     <jaxb:schemaBindings> -->
+<!--       <jaxb:package name="com.himanshu.api.role.test"/> -->
+<!--     </jaxb:schemaBindings> -->
+<!--   </jaxb:bindings> -->
+
+<!--   <jaxb:bindings schemaLocation="privilege.xsd"  node="/xsd:schema"> -->
+<!--     <jaxb:schemaBindings> -->
+<!--       <jaxb:package name="com.himanshu.api.privilege.test"/> -->
+<!--     </jaxb:schemaBindings> -->
+<!--   </jaxb:bindings> -->
+
+</jaxb:bindings>

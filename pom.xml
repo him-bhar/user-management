@@ -23,5 +23,6 @@
 	<modules>
 		<module>user-management-api</module>
 		<module>user-management-impl</module>
+		<module>user-management-rest</module>
 	</modules>
 </project>

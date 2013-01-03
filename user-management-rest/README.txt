@@ -1,0 +1,1 @@
+Prepare a delegator of Service here, using which it can be configured to use database or some other medium to manage, the user-management.

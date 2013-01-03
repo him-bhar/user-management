@@ -9,17 +9,17 @@ import com.himanshu.um.impl.user.db.User;
 
 public class ApiToDbBeanUtil {
 	public UserInterface convertUserApiToDb(com.himanshu.um.api.user.User user) {
-		//NOOP
+		//Not yet implemented.
 		return new User();
 	}
 
 	public RoleInterface convertRoleApiToDb(com.himanshu.um.api.role.Role role) {
-		//NOOP
+		//Not yet implemented.
 		return new Role();
 	}
 
 	public PrivilegeInterface convertPrivilegeApiToDb(com.himanshu.um.api.privileges.Privilege privilege) {
-		//NOOP
+		//Not yet implemented.
 		return new Privilege();
 	}
 }

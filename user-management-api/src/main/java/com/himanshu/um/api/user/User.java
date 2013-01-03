@@ -1,25 +1,30 @@
+
 package com.himanshu.um.api.user;
 
-import java.sql.Timestamp;
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author himanshu
  *
  */
+
+@XmlRootElement
 public class User {
-	private long id;
+	//private long id;
 	private String username;
 	private String password;
-	private Timestamp createdDate;
-	private Timestamp lastModifiedDate;
+	private Date createdDate;
+	private Date lastModifiedDate;
 	private boolean status;
-	
-	public long getId() {
+
+	/*public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
+	}*/
 	public String getUsername() {
 		return username;
 	}
@@ -32,16 +37,16 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Timestamp getCreatedDate() {
+	public Date getCreatedDate() {
 		return createdDate;
 	}
-	public void setCreatedDate(Timestamp createdDate) {
+	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
-	public Timestamp getLastModifiedDate() {
+	public Date getLastModifiedDate() {
 		return lastModifiedDate;
 	}
-	public void setLastModifiedDate(Timestamp lastModifiedDate) {
+	public void setLastModifiedDate(Date lastModifiedDate) {
 		this.lastModifiedDate = lastModifiedDate;
 	}
 	public boolean isStatus() {
