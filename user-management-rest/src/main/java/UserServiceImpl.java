@@ -4,20 +4,23 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.himanshu.um.api.user.User;
+import com.himanshu.um.api.model.User;
+import com.himanshu.um.api.model.UserTO;
+
 
 @Path("/user-service/")
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl {
 
-	@Override
 	@GET
     @Path("/user/{id}")
     @Produces(MediaType.APPLICATION_XML)
-	public User getUser(@PathParam("id") Integer id) {
+	public UserTO getUser(@PathParam("id") Integer id) {
 		System.out.println("Id to get :    "+id);
 		User u = new User();
 		//u.setId(id);
-		return u;
+		UserTO userTo = new UserTO();
+		userTo.setUser(u);
+		return userTo;
 	}
 
 }

@@ -4,7 +4,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.himanshu.um.api.user.User;
+import com.himanshu.um.api.model.User;
+
 
 //@Path("/user-service/")
 public interface UserService {

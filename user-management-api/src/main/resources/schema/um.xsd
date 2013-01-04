@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!--  There are two kinds of JAXB beans:
+
+1) JAXB root element beans whose classes are annotated with @XmlRootElement. These correspond to XSD elements; and
+
+2) JAXB type beans whose classes are annotated with @XmlType. These correspond to XSD types.
+
+Depending on how things are defined in a schema XJC may generate only of 2) and provide methods in the Object factory that return JAXBElement<T>.
+
+For unmarshalling the JAXB unmarshaller can be supplied with a JAXB context that supports 1) or 2). If an XML type bean is returned by the unmarshaller then the root element of the XML document will be processed but that root element information will not be associated with the JAXB type bean. Or if the root element is required to be known for 2) then it is necessary to obtain a JAXBElement instance for the JAXB bean type using a specific method on the JAXB unmarshaller.
+
+For marshalling it is required that JAXB have enough information to create a well formed XML document. Thus JAXB root element beans can be marshalled but JAXB type beans cannot, because it does not have a XML root element associated with it. In this case an instance of JAXBElement<T> needs to be used.
+
+Jersey has supported 1) using JAXB root element bean instances and types and supported 2) using JAXBElement<T> instances and types where T is a JAXB type bean. However i have just added support for 2) in the trunk for unmarshalling (consuming) such that a JAXB type bean class can be referenced directly. This also solves for you the Client API issue.
+
+As for the other issues, i think i am going to write a stand alone sample application for you that exercises various JAXB use cases and will help you understand what is going on and the best way to implement you services.  -->
+
+  <xs:include schemaLocation="um-blueprint.xsd"></xs:include>
+
+  <xs:element name="userTO">
+  	<xs:annotation>
+  		<xs:documentation><![CDATA[This is the tranfer object for USER, which will be exposed through REST-API]]></xs:documentation>
+  	</xs:annotation>
+  	<xs:complexType>
+  		<xs:sequence>
+  			<xs:element name="user" type="user" minOccurs="1"></xs:element>
+  		</xs:sequence>
+  	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="roleTO">
+    <xs:annotation>
+  		<xs:documentation><![CDATA[This is the tranfer object for ROLE, which will be exposed through REST-API]]></xs:documentation>
+  	</xs:annotation>
+  	<xs:complexType>
+  		<xs:sequence>
+  			<xs:element name="role" type="role" minOccurs="1"></xs:element>
+  		</xs:sequence>
+  	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="privilegeTO">
+    <xs:annotation>
+  		<xs:documentation><![CDATA[This is the tranfer object for PRIVILEGE, which will be exposed through REST-API]]></xs:documentation>
+  	</xs:annotation>
+  	<xs:complexType>
+  		<xs:sequence>
+  			<xs:element name="privilege" type="privilege" minOccurs="1"></xs:element>
+  		</xs:sequence>
+  	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="userRoleMappingTO">
+  	<xs:complexType>
+  		<xs:sequence>
+  			<xs:element name="userRoleMapping" type="userRoleMapping" minOccurs="1"></xs:element>
+  		</xs:sequence>
+  	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="privilegeRoleMappingTO">
+  	<xs:complexType>
+  		<xs:sequence>
+  			<xs:element name="privilegeRoleMapping" type="privilegeRoleMapping" minOccurs="1"></xs:element>
+  		</xs:sequence>
+  	</xs:complexType>
+  </xs:element>
+
+</xs:schema>

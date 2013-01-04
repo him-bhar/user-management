@@ -1,9 +1,10 @@
 package com.himanshu.um.impl.manager;
 
 import com.himanshu.um.api.manager.IManager;
-import com.himanshu.um.api.privileges.Privilege;
-import com.himanshu.um.api.role.Role;
-import com.himanshu.um.api.user.User;
+import com.himanshu.um.api.model.Privilege;
+import com.himanshu.um.api.model.Role;
+import com.himanshu.um.api.model.User;
+
 
 public class DatabaseManagerImpl implements IManager {
 
