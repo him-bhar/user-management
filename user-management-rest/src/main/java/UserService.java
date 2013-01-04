@@ -1,27 +1,15 @@
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import java.util.List;
 
+import com.himanshu.um.api.model.Privilege;
+import com.himanshu.um.api.model.Role;
 import com.himanshu.um.api.model.User;
 
-
-//@Path("/user-service/")
 public interface UserService {
 
-	    /*@GET
-	    @Path("/user/{id}")
-	    @Produces(MediaType.APPLICATION_XML)*/
-	    public User getUser(/*@PathParam("id")*/ Integer id);
+	public User getUser(Integer id);
+	public List<User> getAllUsers();
+	public List<Role> getAllRoles();
+	public List<Privilege> getAllPrivileges();
 
-	    /*@POST
-	    @Path("/new")
-		@Produces(MediaType.TEXT_HTML)
-		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-		public void newUser(
-				@FormParam("id") Integer id,
-				@FormParam("name") String name,
-				@Context HttpServletResponse servletResponse
-		) throws IOException;*/
-	}
+
+}

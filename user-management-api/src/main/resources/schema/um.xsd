@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!--  Author: Himanshu Bhardwaj -->
+
 <!--  There are two kinds of JAXB beans:
 
 1) JAXB root element beans whose classes are annotated with @XmlRootElement. These correspond to XSD elements; and

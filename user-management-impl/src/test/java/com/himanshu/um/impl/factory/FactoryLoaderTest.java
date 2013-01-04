@@ -26,9 +26,9 @@ public class FactoryLoaderTest {
 		//em.persist(new User());
 		//em.getTransaction().commit();
 		UserDao dao = (UserDao)context.getBean("userDao");
-		dao.save(new User());
-		RoleDao roledao = (RoleDao)context.getBean("roleDao");
-		roledao.save(new Role());
+		User u = new User();
+		u.setUsername("bhardwaj");
+		dao.save(u);
 
 	}
 
@@ -49,6 +49,7 @@ public class FactoryLoaderTest {
 
 	}
 
+	@Ignore
 	@Test
 	public void testRolePrivilegeMappingLoad() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("um-spring.xml");
@@ -62,5 +63,13 @@ public class FactoryLoaderTest {
 		privDao.save(p);
 
 
+	}
+
+	@Test
+	public void testListAllUsers() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("um-spring.xml");
+
+		UserDao userDao = context.getBean(UserDao.class);
+		userDao.findAll(User.class, null);
 	}
 }
