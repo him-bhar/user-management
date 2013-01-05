@@ -12,15 +12,13 @@ import com.himanshu.um.api.model.UserTO;
 
 
 @Path("/user-service/")
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
 
 	@GET
-    @Path("/user/{id}")
+    @Path("/user/{name}")
     @Produces(MediaType.APPLICATION_XML)
-	public UserTO getUser(@PathParam("id") Integer id) {
-		System.out.println("Id to get :    "+id);
+	public UserTO getUser(@PathParam("name") String name) {
 		User u = new User();
-		//u.setId(id);
 		UserTO userTo = new UserTO();
 		userTo.setUser(u);
 		return userTo;
@@ -29,7 +27,7 @@ public class UserServiceImpl {
 	@GET
     @Path("/users")
     @Produces(MediaType.APPLICATION_XML)
-	public List<UserTO> getUsers() {
+	public List<UserTO> getAllUsers() {
 		List<UserTO> userList = new ArrayList<UserTO>();
 		UserTO userTo1 = new UserTO();
 		User u1 = new User();

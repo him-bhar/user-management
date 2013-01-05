@@ -1,15 +1,24 @@
 import java.util.List;
 
-import com.himanshu.um.api.model.Privilege;
-import com.himanshu.um.api.model.Role;
-import com.himanshu.um.api.model.User;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
+import com.himanshu.um.api.model.UserTO;
+
+@Path("/user-service/")
 public interface UserService {
 
-	public User getUser(Integer id);
-	public List<User> getAllUsers();
-	public List<Role> getAllRoles();
-	public List<Privilege> getAllPrivileges();
-
-
+	@GET
+    @Path("/user/{name}")
+    @Produces(MediaType.APPLICATION_XML)
+	UserTO getUser(@PathParam("name") String username);
+	
+	@GET
+    @Path("/users")
+    @Produces(MediaType.APPLICATION_XML)
+	List<UserTO> getAllUsers();
+	
 }

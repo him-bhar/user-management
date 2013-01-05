@@ -68,7 +68,7 @@
 
 		<dependency>
 			<groupId>com.himanshu.usermanagement</groupId>
-			<artifactId>um-api</artifactId>
+			<artifactId>um-impl</artifactId>
 			<version>${um-api-version}</version>
 		</dependency>
 
@@ -92,7 +92,7 @@
 		<spring.version>3.1.2.RELEASE</spring.version>
 		<quartz-version>1.8.6</quartz-version>
 		<spring-data-jpa-version>1.1.0.RELEASE</spring-data-jpa-version>
-		<um-api-version>1.0-SNAPSHOT</um-api-version>
+		<um-impl-version>1.0-SNAPSHOT</um-impl-version>
 		<cglib-version>2.2</cglib-version>
 		<mysql-connector-version>5.1.21</mysql-connector-version>
 		<hibernate-em-version>4.1.7.Final</hibernate-em-version>
