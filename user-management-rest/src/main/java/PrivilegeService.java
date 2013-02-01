@@ -7,11 +7,11 @@ import javax.ws.rs.core.MediaType;
 
 import com.himanshu.um.api.model.PrivilegeTO;
 
-@Path("/privilege-service/")
+/*@Path("/privilege-service/")*/
 public interface PrivilegeService {
-	
-	@GET
+
+	/*@GET
     @Path("/privileges")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_XML)*/
 	List<PrivilegeTO> getAllPrivileges();
 }

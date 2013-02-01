@@ -7,13 +7,13 @@ import javax.ws.rs.core.MediaType;
 
 import com.himanshu.um.api.model.RoleTO;
 
-@Path("/role-service/")
+/*@Path("/role-service/")*/
 public interface RoleService {
-	
-	@GET
+
+	/*@GET
     @Path("/roles")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_XML)*/
 	List<RoleTO> getAllRoles();
-	
+
 
 }

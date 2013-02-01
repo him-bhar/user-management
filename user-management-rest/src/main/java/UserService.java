@@ -8,17 +8,17 @@ import javax.ws.rs.core.MediaType;
 
 import com.himanshu.um.api.model.UserTO;
 
-@Path("/user-service/")
+/*@Path("/user-service/")*/
 public interface UserService {
 
-	@GET
+	/*@GET
     @Path("/user/{name}")
-    @Produces(MediaType.APPLICATION_XML)
-	UserTO getUser(@PathParam("name") String username);
-	
-	@GET
+    @Produces(MediaType.APPLICATION_XML)*/
+	UserTO getUser(/*@PathParam("name") */String username);
+
+	/*@GET
     @Path("/users")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_XML)*/
 	List<UserTO> getAllUsers();
-	
+
 }

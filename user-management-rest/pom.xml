@@ -8,6 +8,7 @@
 	<name>User Management RestFul Services</name>
 	<url>http://maven.apache.org</url>
 	<build>
+<!-- 		<finalName>${artifact-id}</finalName> -->
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -16,6 +17,20 @@
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+<!-- 					<webResources> -->
+<!-- 						<resource> -->
+<!-- 							this is relative to the pom.xml directory -->
+<!-- 							<directory>resources</directory> -->
+<!-- 						</resource> -->
+<!-- 					</webResources> -->
+					<warName>${war.name}</warName>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -103,5 +118,6 @@
 		<junit-version>3.8.1</junit-version>
 		<cxf-version>2.6.2</cxf-version>
 		<jersey-version>1.0.2</jersey-version>
+		<war.name>um-ws</war.name>
 	</properties>
 </project>
