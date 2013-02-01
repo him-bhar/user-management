@@ -26,7 +26,7 @@ public class GenericDao<T> {
 		return t;
 	}
 
-	public List<T> findAll(Class<T> entityClass, T t) {
+	public List<T> findAll(Class<T> entityClass) {
 		return em.createQuery("from "+entityClass.getCanonicalName()).getResultList();
 	}
 }

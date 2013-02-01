@@ -1,3 +1,4 @@
+package com.himanshu.um.service.interfaces;
 import java.util.List;
 
 import javax.ws.rs.GET;

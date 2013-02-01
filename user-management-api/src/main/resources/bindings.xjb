@@ -27,4 +27,9 @@
 <!--     </jaxb:bindings> -->
 <!-- </jaxb:bindings> -->
 
+<!-- 	<jaxb:globalBindings> -->
+<!-- 		<jaxb:serializable /> -->
+<!-- 		<jaxb:javaType name="java.util.Date" xmlType="xsd:dateTime" /> -->
+<!-- 	</jaxb:globalBindings> -->
+
 </jaxb:bindings>

@@ -70,6 +70,6 @@ public class FactoryLoaderTest {
 		ApplicationContext context = new ClassPathXmlApplicationContext("um-spring.xml");
 
 		UserDao userDao = context.getBean(UserDao.class);
-		userDao.findAll(User.class, null);
+		userDao.findAll(User.class);
 	}
 }
