@@ -4,6 +4,9 @@ Using Jersey framework to host restful services.
 
 Integration of Jersey Rest Services have been done with Spring 3.1.2-RELEASE.
 
+Note
+In "jersey-spring.jar" version, it will download all the Spring 2.5.6 dependencies. To use Spring 3, you need to exclude those old Spring libraries manually.
+
 <dependency>
 	<groupId>com.sun.jersey.contribs</groupId>
 	<artifactId>jersey-spring</artifactId>
