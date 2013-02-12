@@ -1,0 +1,65 @@
+<configuration scan="true" scanPeriod="60 seconds">
+	<statusListener class="ch.qos.logback.core.status.StatusListenerAsList" />
+	<property resource="mg-smtp.config" />
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%ex
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="CustomSiftAppender" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator class="com.himanshu.logging.discriminator.AccountDiscriminator">
+			<Key>id</Key>
+			<DefaultValue>na</DefaultValue>
+		</discriminator>
+		<sift>
+			<appender class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<!-- <filter class="com.himanshu.logging.RangeLevelFilter"> -->
+				<!-- <minLevel>TRACE</minLevel> -->
+				<!-- <maxLevel>ERROR</maxLevel> -->
+				<!-- <onMatch>ACCEPT</onMatch> -->
+				<!-- <onMismatch>DENY</onMismatch> -->
+				<!-- </filter> -->
+				<file>../../logs/account/${id}/um.log</file>
+				<encoder>
+					<pattern>%date{ISO8601} %m%n %ex</pattern>
+				</encoder>
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<fileNamePattern>../../logs/${id}/um.%d{yyyy-MM-dd}.%i.log.gz
+					</fileNamePattern>
+					<maxHistory>5</maxHistory>
+					<timeBasedFileNamingAndTriggeringPolicy
+						class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+						<maxFileSize>10MB</maxFileSize>
+					</timeBasedFileNamingAndTriggeringPolicy>
+				</rollingPolicy>
+			</appender>
+		</sift>
+	</appender>
+
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+	<logger name="org.apache" level="ERROR" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="org.mortbay" level="ERROR" additivity="false">
+		<appender-ref ref="ERROR" />
+	</logger>
+
+	<logger name="org.hibernate" level="ERROR" />
+
+	<logger name="org.springframework" level="ERROR" />
+
+	<logger name="org.ajax4jsf" level="ERROR" />
+
+	<logger name="com.mchange" level="ERROR"></logger>
+
+	<logger name="com.himanshu" level="TRACE" additivity="false">
+		<appender-ref ref="CustomSiftAppender"></appender-ref>
+	</logger>
+
+</configuration>

@@ -21,6 +21,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.himanshu.logging.AccountLogger;
 import com.himanshu.um.impl.privileges.dao.PrivilegeDao;
 import com.himanshu.um.impl.privileges.db.Privilege;
 import com.himanshu.um.impl.role.dao.RoleDao;
@@ -88,6 +89,12 @@ public class FactoryLoaderTest {
 
 		UserDao userDao = context.getBean(UserDao.class);
 		userDao.findAll(User.class);
+	}
+
+	@Test
+	public void testLogMessageWithoutMarker() {
+		AccountLogger logger = new AccountLogger(getClass(), "testing");
+		logger.debug("Test1"); //Since marker is not supplied, hence default value is supplied from discriminator class
 	}
 
 }
