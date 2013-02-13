@@ -54,7 +54,6 @@
 
 	<logger name="com.himanshu" level="TRACE" additivity="false">
 		<appender-ref ref="CustomSiftAppender"></appender-ref>
-		<appender-ref ref="STDOUT"></appender-ref>
 	</logger>
 
 </configuration>
