@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.himanshu.usermanagement</groupId>
-	<artifactId>um-impl</artifactId>
+	<artifactId>um-exception</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>User Management Implementation</name>
+	<name>User Management Exception Framework</name>
 	<url>http://maven.apache.org</url>
 	
 	<parent>
@@ -36,7 +36,7 @@
 		</dependency>
 
 		<!-- Spring 3 dependencies -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
@@ -46,73 +46,40 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
+		</dependency>-->
 
-		<dependency>
+		<!-- QuartzJobBean in spring-context-support.jar -->
+		<!--<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
+		</dependency>-->
 
-		<!-- Spring need transaction -->
-		<dependency>
+		<!-- Spring + Quartz need transaction -->
+		<!--<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate-em-version}</version>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.1</version>
 		</dependency>
 
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql-connector-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>${spring-data-jpa-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>${cglib-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.himanshu.usermanagement</groupId>
-			<artifactId>um-api</artifactId>
-			<version>${um-api-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.himanshu.utils</groupId>
-			<artifactId>common-util</artifactId>
-			<version>${common-util-version}</version>
-		</dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.2.2</version>
+		</dependency>-->
 
 	</dependencies>
+
+
 
 	<properties>
 		<spring.version>3.1.2.RELEASE</spring.version>
 		<quartz-version>1.8.6</quartz-version>
-		<spring-data-jpa-version>1.1.0.RELEASE</spring-data-jpa-version>
-		<um-api-version>1.0-SNAPSHOT</um-api-version>
-		<cglib-version>2.2</cglib-version>
-		<mysql-connector-version>5.1.21</mysql-connector-version>
-		<hibernate-em-version>4.1.7.Final</hibernate-em-version>
-		<common-util-version>0.0.1-SNAPSHOT</common-util-version>
 	</properties>
 </project>

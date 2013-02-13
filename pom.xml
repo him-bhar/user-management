@@ -21,8 +21,12 @@
 		</plugins>
 	</build>
 	<modules>
+		<module>user-management-exception</module>
 		<module>user-management-api</module>
 		<module>user-management-impl</module>
 		<module>user-management-rest</module>
 	</modules>
+	<properties>
+		<junit-version>4.8.1</junit-version>
+	</properties>
 </project>

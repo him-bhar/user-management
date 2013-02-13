@@ -7,6 +7,13 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>User Management RestFul Services</name>
 	<url>http://maven.apache.org</url>
+	
+	<parent>
+		<groupId>com.himanshu.usermanagement</groupId>
+		<artifactId>um</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	
 	<build>
 		<!-- <finalName>${artifact-id}</finalName> -->
 		<plugins>
@@ -150,7 +157,6 @@
 		<cglib-version>2.2</cglib-version>
 		<mysql-connector-version>5.1.21</mysql-connector-version>
 		<hibernate-em-version>4.1.7.Final</hibernate-em-version>
-		<junit-version>3.8.1</junit-version>
 		<cxf-version>2.6.2</cxf-version>
 		<jersey-version>1.0.2</jersey-version>
 		<war.name>um-ws</war.name>
