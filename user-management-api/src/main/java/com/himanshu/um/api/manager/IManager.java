@@ -16,6 +16,13 @@
 
 package com.himanshu.um.api.manager;
 
+import com.himanshu.um.exceptions.privilege.PrivilegeCreationException;
+import com.himanshu.um.exceptions.privilege.PrivilegeModificationException;
+import com.himanshu.um.exceptions.role.RoleCreationException;
+import com.himanshu.um.exceptions.role.RoleModificationException;
+import com.himanshu.um.exceptions.user.UserCreationException;
+import com.himanshu.um.exceptions.user.UserModificationException;
+
 
 /**
  * @author himanshu
@@ -26,44 +33,44 @@ public interface IManager {
 	 * This method is used to create a new User
 	 * @param user
 	 */
-	public void addNewUser (com.himanshu.um.api.model.User user);
+	public void addNewUser (com.himanshu.um.api.model.User user) throws UserCreationException;
 	/**
 	 * This method is used to create a new Role
 	 * @param role
 	 */
-	public void addNewRole (com.himanshu.um.api.model.Role role);
+	public void addNewRole (com.himanshu.um.api.model.Role role) throws RoleCreationException;
 	/**
 	 * This method is used to create a new Privilege
 	 * @param privilege
 	 */
-	public void addNewPrivilege (com.himanshu.um.api.model.Privilege privilege);
+	public void addNewPrivilege (com.himanshu.um.api.model.Privilege privilege) throws PrivilegeCreationException;
 	/**
 	 * This method is used to update an existing User
 	 * @param user
 	 */
-	public void updateNewUser (com.himanshu.um.api.model.User user);
+	public void updateUser (com.himanshu.um.api.model.User user) throws UserModificationException;
 	/**
 	 * This method is used to update an existing Role
 	 * @param role
 	 */
-	public void updateNewRole (com.himanshu.um.api.model.Role role);
+	public void updateRole (com.himanshu.um.api.model.Role role) throws RoleModificationException;
 	/**
 	 * This method is used to update an existing Privilege
 	 * @param privilege
 	 */
-	public void updateNewPrivilege (com.himanshu.um.api.model.Privilege privilege);
+	public void updatePrivilege (com.himanshu.um.api.model.Privilege privilege) throws PrivilegeModificationException;
 	/**
 	 * This method is used to map a new Role to a User
 	 * @param user
 	 * @param role
 	 */
-	public void mapNewRoleToUser (com.himanshu.um.api.model.User user, com.himanshu.um.api.model.Role role);
+	public void mapNewRoleToUser (com.himanshu.um.api.model.User user, com.himanshu.um.api.model.Role role) throws UserModificationException;
 	/**
 	 * This method is used to map a new Privilege to Role
 	 * @param role
 	 * @param privilege
 	 */
-	public void mapNewPrivilegeToRole (com.himanshu.um.api.model.Role role, com.himanshu.um.api.model.Privilege privilege);
+	public void mapNewPrivilegeToRole (com.himanshu.um.api.model.Role role, com.himanshu.um.api.model.Privilege privilege) throws RoleModificationException;
 	/**
 	 * This method is used to Delete a Role from a User
 	 * @param user
@@ -75,5 +82,5 @@ public interface IManager {
 	 * @param role
 	 * @param privlege
 	 */
-	public void deleteRolePrivilege (com.himanshu.um.api.model.Role role, com.himanshu.um.api.model.Privilege privilege);
+	public void deletePrivilegeRole (com.himanshu.um.api.model.Role role, com.himanshu.um.api.model.Privilege privilege);
 }

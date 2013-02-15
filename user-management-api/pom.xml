@@ -7,13 +7,13 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>User Management API</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<parent>
 		<groupId>com.himanshu.usermanagement</groupId>
 		<artifactId>um</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -152,12 +152,17 @@
 			<version>2.2.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.himanshu.usermanagement</groupId>
+			<artifactId>um-exception</artifactId>
+			<version>${um-exception-version}</version>
+		</dependency>
+
 	</dependencies>
-
-
 
 	<properties>
 		<spring.version>3.1.2.RELEASE</spring.version>
 		<quartz-version>1.8.6</quartz-version>
+		<um-exception-version>${project.version}</um-exception-version>
 	</properties>
 </project>
