@@ -16,58 +16,92 @@
 
 package com.himanshu.um.impl.manager;
 
+import java.sql.Timestamp;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import com.himanshu.um.api.manager.IManager;
 import com.himanshu.um.api.model.Privilege;
 import com.himanshu.um.api.model.Role;
 import com.himanshu.um.api.model.User;
+import com.himanshu.um.exceptions.privilege.PrivilegeCreationException;
+import com.himanshu.um.exceptions.privilege.PrivilegeModificationException;
+import com.himanshu.um.exceptions.role.RoleCreationException;
+import com.himanshu.um.exceptions.role.RoleModificationException;
+import com.himanshu.um.exceptions.user.UserCreationException;
+import com.himanshu.um.exceptions.user.UserModificationException;
+import com.himanshu.um.impl.user.dao.UserDao;
 
 
 public class DatabaseManagerImpl implements IManager {
 
+	@Autowired
+	@Qualifier("userDao")
+	UserDao userDao;
+
+	public UserDao getUserDao() {
+		return userDao;
+	}
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+
 	@Override
-	public void addNewUser(User user) {
+	public void addNewUser(User user) throws UserCreationException {
+		com.himanshu.um.impl.user.db.User userDB = new com.himanshu.um.impl.user.db.User();
+		userDB.setUsername(user.getUsername());
+		userDB.setPassword(user.getPassword());
+		userDB.setCreatedDate(new Timestamp(user.getCreatedDate().toGregorianCalendar().getTimeInMillis()));
+		userDB.setStatus(user.isStatus());
+		userDB.setLastModifiedDate(new Timestamp(user.getLastModifiedDate().toGregorianCalendar().getTimeInMillis()));
+		userDao.save(userDB);
+
+	}
+
+	@Override
+	public void addNewRole(Role role) throws RoleCreationException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void addNewRole(Role role) {
+	public void addNewPrivilege(Privilege privilege)
+			throws PrivilegeCreationException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void addNewPrivilege(Privilege privilege) {
+	public void updateUser(User user) throws UserModificationException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void updateNewUser(User user) {
+	public void updateRole(Role role) throws RoleModificationException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void updateNewRole(Role role) {
+	public void updatePrivilege(Privilege privilege)
+			throws PrivilegeModificationException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void updateNewPrivilege(Privilege privilege) {
+	public void mapNewRoleToUser(User user, Role role)
+			throws UserModificationException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void mapNewRoleToUser(User user, Role role) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mapNewPrivilegeToRole(Role role, Privilege privilege) {
+	public void mapNewPrivilegeToRole(Role role, Privilege privilege)
+			throws RoleModificationException {
 		// TODO Auto-generated method stub
 
 	}
@@ -79,7 +113,7 @@ public class DatabaseManagerImpl implements IManager {
 	}
 
 	@Override
-	public void deleteRolePrivilege(Role role, Privilege privilege) {
+	public void deletePrivilegeRole(Role role, Privilege privilege) {
 		// TODO Auto-generated method stub
 
 	}

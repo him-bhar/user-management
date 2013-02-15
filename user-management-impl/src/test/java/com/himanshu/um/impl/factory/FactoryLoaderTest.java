@@ -16,12 +16,21 @@
 
 package com.himanshu.um.impl.factory;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.himanshu.logging.AccountLogger;
+import com.himanshu.um.api.manager.IManager;
+import com.himanshu.um.exceptions.user.UserCreationException;
+import com.himanshu.um.impl.manager.DatabaseManagerImpl;
 import com.himanshu.um.impl.privileges.dao.PrivilegeDao;
 import com.himanshu.um.impl.privileges.db.Privilege;
 import com.himanshu.um.impl.role.dao.RoleDao;
@@ -91,10 +100,43 @@ public class FactoryLoaderTest {
 		userDao.findAll(User.class);
 	}
 
+	@Ignore
 	@Test
 	public void testLogMessageWithoutMarker() {
 		AccountLogger logger = new AccountLogger(getClass(), "testing");
 		logger.debug("Test1"); //Since marker is not supplied, hence default value is supplied from discriminator class
+	}
+
+	@Test
+	public void createUser() throws UserCreationException, DatatypeConfigurationException, InterruptedException {
+		ApplicationContext context = new ClassPathXmlApplicationContext("um-spring.xml");
+
+		IManager manager = context.getBean(DatabaseManagerImpl.class);
+		com.himanshu.um.api.model.User user = new com.himanshu.um.api.model.User();
+		user.setUsername("himanshu");
+		user.setPassword("password");
+		user.setStatus(true);
+		GregorianCalendar cal = new GregorianCalendar();
+		cal.setTimeInMillis(new Date().getTime());
+		try {
+			user.setCreatedDate(DatatypeFactory.newInstance().newXMLGregorianCalendar(cal));
+		} catch (DatatypeConfigurationException e) {
+			e.printStackTrace();
+			throw e;
+		}
+
+		Thread.sleep(3000);	//3 seconds sleep to demonstrate last modified date lag
+
+		cal.setTimeInMillis(new Date().getTime());
+		try {
+			user.setLastModifiedDate(DatatypeFactory.newInstance().newXMLGregorianCalendar(cal));
+		} catch (DatatypeConfigurationException e) {
+			e.printStackTrace();
+			throw e;
+		}
+
+
+		manager.addNewUser(user);
 	}
 
 }

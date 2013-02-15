@@ -16,9 +16,13 @@
 
 package com.himanshu.um.impl.user.dao;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import com.himanshu.um.impl.db.dao.GenericDao;
 import com.himanshu.um.impl.user.db.User;
 
+@Component ("userDao")
 public class UserDao extends GenericDao<User> {
 
 }

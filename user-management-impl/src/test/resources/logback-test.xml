@@ -32,8 +32,8 @@
 		</sift>
 	</appender>
 
-	<root level="DEBUG">
-		<appender-ref ref="STDOUT" />
+	<root level="TRACE">
+<!-- 		<appender-ref ref="STDOUT" /> -->
 	</root>
 
 	<logger name="org.apache" level="ERROR" additivity="false">
@@ -46,7 +46,9 @@
 
 	<logger name="org.hibernate" level="ERROR" />
 
-	<logger name="org.springframework" level="ERROR" />
+	<logger name="org.springframework" level="TRACE">
+		<appender-ref ref="STDOUT"></appender-ref>
+	</logger>
 
 	<logger name="org.ajax4jsf" level="ERROR" />
 
