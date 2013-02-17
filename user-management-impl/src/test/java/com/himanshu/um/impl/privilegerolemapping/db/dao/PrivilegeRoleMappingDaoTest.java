@@ -13,20 +13,33 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
 */
+package com.himanshu.um.impl.privilegerolemapping.db.dao;
 
-package com.himanshu.um.impl.factory;
-
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.himanshu.um.impl.privileges.dao.PrivilegeDao;
+import com.himanshu.um.impl.privileges.db.Privilege;
+import com.himanshu.um.impl.role.dao.RoleDao;
+import com.himanshu.um.impl.role.db.Role;
 
-public class FactoryLoaderTest {
-
+public class PrivilegeRoleMappingDaoTest {
+	@Ignore
 	@Test
-	public void testApplicationContextLoad() {
+	public void testRolePrivilegeMappingLoad() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("um-spring.xml");
-		context.getBean("userDao");
+
+		RoleDao roleDao = (RoleDao)context.getBean("roleDao");
+		PrivilegeDao privDao = context.getBean(PrivilegeDao.class);
+		Privilege p = new Privilege();
+		Role r = new Role();
+		roleDao.save(r);
+		p.addRoleMapping(r);
+		privDao.save(p);
+
+
 	}
 
 }

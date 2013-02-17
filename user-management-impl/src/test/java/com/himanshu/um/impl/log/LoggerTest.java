@@ -13,20 +13,20 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
 */
+package com.himanshu.um.impl.log;
 
-package com.himanshu.um.impl.factory;
-
+import org.junit.Ignore;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.himanshu.logging.AccountLogger;
 
-public class FactoryLoaderTest {
-
+public class LoggerTest {
+	
+	@Ignore
 	@Test
-	public void testApplicationContextLoad() {
-		ApplicationContext context = new ClassPathXmlApplicationContext("um-spring.xml");
-		context.getBean("userDao");
+	public void testLogMessageWithoutMarker() {
+		AccountLogger logger = new AccountLogger(getClass(), "testing");
+		logger.debug("Test1"); //Since marker is not supplied, hence default value is supplied from discriminator class
 	}
 
 }
