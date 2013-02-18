@@ -13,15 +13,21 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
 */
+package com.himanshu.um.impl.performance;
 
-package com.himanshu.um.impl.user.dao;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import org.springframework.stereotype.Component;
+import com.himanshu.um.impl.user.dao.UserDao;
 
-import com.himanshu.um.impl.db.dao.GenericDao;
-import com.himanshu.um.impl.user.db.User;
+public class PerformanceTest {
 
-@Component ("userDao")
-public class UserDao extends GenericDao<User> {
+	@Test
+	public void performanceLogWithAnnotationTest() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("um-spring.xml");
+		UserDao udao = (UserDao)context.getBean("userDao");
+		udao.performanceMonitorTest();
+	}
 
 }

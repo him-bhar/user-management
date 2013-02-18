@@ -23,6 +23,8 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.himanshu.um.api.performance.annotation.MonitorPerformance;
+
 public class GenericDao<T> {
 
 	private EntityManager em;
@@ -45,4 +47,10 @@ public class GenericDao<T> {
 	public List<T> findAll(Class<T> entityClass) {
 		return em.createQuery("from "+entityClass.getCanonicalName()).getResultList();
 	}
+
+	@MonitorPerformance
+	public void performanceMonitorTest() {
+		//NOOP
+	}
+
 }
