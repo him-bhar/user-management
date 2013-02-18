@@ -20,13 +20,18 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.himanshu.um.impl.role.dao.RoleDao;
+import com.himanshu.um.impl.user.dao.UserDao;
+
 
 public class FactoryLoaderTest {
 
 	@Test
 	public void testApplicationContextLoad() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("um-spring.xml");
-		context.getBean("userDao");
+		UserDao udao = (UserDao)context.getBean("userDao");	//With Annotation
+		RoleDao rdao = (RoleDao)context.getBean("roleDao"); //With XML Configuration
+
 	}
 
 }

@@ -32,12 +32,30 @@
 		</sift>
 	</appender>
 
+	<appender name="PerformanceLogging" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>../../logs/performance/performance.log</file>
+		<encoder>
+			<pattern>%date{ISO8601} %m%n %ex</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>../../logs/performance/performance.%d{yyyy-MM-dd}.%i.log.gz
+			</fileNamePattern>
+			<maxHistory>5</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy	class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+					<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+
 	<root level="TRACE">
 <!-- 		<appender-ref ref="STDOUT" /> -->
 	</root>
 
 	<logger name="org.apache" level="ERROR" additivity="false">
 		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="org.springframework.aop" level="ERROR" additivity="false">
 	</logger>
 
 	<logger name="org.mortbay" level="ERROR" additivity="false">
@@ -57,6 +75,11 @@
 	<logger name="com.himanshu" level="TRACE" additivity="false">
 		<appender-ref ref="CustomSiftAppender"></appender-ref>
 		<appender-ref ref="STDOUT"></appender-ref>
+	</logger>
+
+	<logger name="performance.logging" level="DEBUG" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="PerformanceLogging"></appender-ref>
 	</logger>
 
 </configuration>
