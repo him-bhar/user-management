@@ -42,3 +42,42 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 ---------------------------------------------------------------------------------------
 
 Refer to code here, UserDao is loaded with Annotations whereas the PrivilegeDao and RoleDao are loaded using XML definition. Hope this helps.
+
+---------------------------------------------------------------------------------------
+
+PERFORMANCE MONITORING:
+
+Introduced "MonitorPerformance" annotation in API. Each method which needs to be made performance monitoring can be marked with this annotation.
+Using AspectJ logging, we will monitor those methods. The class which does this job is "com.himanshu.um.impl.aop.performance.monitor.DBPerformanceMonitorAOP"
+
+---------------------------------------------------------------------------------------
+
+AspectJ is wired in Spring context all using annotations, nice to go through.
+
+Just add this line in the root spring config file:
+<aop:aspectj-autoproxy />
+
+
+Or if you want to do with XML configuration refer to um-aop.xml, this contains a commented bean which is an aspectJ AOP.
+
+Sample code for AspectJ Class is:
+
+<Code>
+
+@Component
+@Aspect
+public class DBPerformanceMonitorAOP {
+
+	Logger LOG = LoggerFactory.getLogger("performance.logging");
+
+	@Around("execution(@com.himanshu.um.api.performance.annotation.MonitorPerformance * *(..))")
+	public void logAround(ProceedingJoinPoint joinPoint) throws Throwable {
+		long startTime = System.currentTimeMillis();
+		joinPoint.proceed(); // continue on the intercepted method
+		LOG.debug("{}, {}, {}", new Object[] {joinPoint.getTarget().getClass().getName(), joinPoint.getSignature().getName(), System.currentTimeMillis() - startTime});
+	}
+
+}
+
+</Code>
+----------------------------------------------------------------------------------------
