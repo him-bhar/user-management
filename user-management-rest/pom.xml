@@ -7,13 +7,13 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>User Management RestFul Services</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<parent>
 		<groupId>com.himanshu.usermanagement</groupId>
 		<artifactId>um</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<build>
 		<!-- <finalName>${artifact-id}</finalName> -->
 		<plugins>
@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>${junit-version}</version>
+<!-- 			<version>${junit-version}</version> -->
 			<scope>test</scope>
 		</dependency>
 
@@ -54,50 +54,50 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
+<!-- 			<version>${spring.version}</version> -->
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
+<!-- 			<version>${spring.version}</version> -->
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>${spring.version}</version>
+<!-- 			<version>${spring.version}</version> -->
 		</dependency>
 
 		<!-- Spring need transaction -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>${spring.version}</version>
+<!-- 			<version>${spring.version}</version> -->
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>${spring-data-jpa-version}</version>
+<!-- 			<version>${spring-data-jpa-version}</version> -->
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
+<!-- 			<version>${spring.version}</version> -->
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>${spring.version}</version>
+<!-- 			<version>${spring.version}</version> -->
 		</dependency>
 
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
-			<version>${cglib-version}</version>
+<!-- 			<version>${cglib-version}</version> -->
 		</dependency>
 
 		<dependency>
@@ -109,20 +109,20 @@
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>
-			<version>${jersey-version}</version>
+<!-- 			<version>${jersey-version}</version> -->
 		</dependency>
 
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-bundle</artifactId>
-			<version>1.16</version>
+<!-- 			<version>1.16</version> -->
 		</dependency>
 
 		<!-- Jersey + Spring -->
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-spring</artifactId>
-			<version>1.8</version>
+<!-- 			<version>1.8</version> -->
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
@@ -150,15 +150,15 @@
 	</dependencies>
 
 	<properties>
-		<spring.version>3.1.2.RELEASE</spring.version>
-		<quartz-version>1.8.6</quartz-version>
-		<spring-data-jpa-version>1.1.0.RELEASE</spring-data-jpa-version>
+<!-- 		<spring.version>3.1.2.RELEASE</spring.version> -->
+<!-- 		<quartz-version>1.8.6</quartz-version> -->
+<!-- 		<spring-data-jpa-version>1.1.0.RELEASE</spring-data-jpa-version> -->
 		<um-impl-version>1.0-SNAPSHOT</um-impl-version>
-		<cglib-version>2.2</cglib-version>
-		<mysql-connector-version>5.1.21</mysql-connector-version>
-		<hibernate-em-version>4.1.7.Final</hibernate-em-version>
-		<cxf-version>2.6.2</cxf-version>
-		<jersey-version>1.0.2</jersey-version>
+<!-- 		<cglib-version>2.2</cglib-version> -->
+<!-- 		<mysql-connector-version>5.1.21</mysql-connector-version> -->
+<!-- 		<hibernate-em-version>4.1.7.Final</hibernate-em-version> -->
+<!-- 		<cxf-version>2.6.2</cxf-version> -->
+<!-- 		<jersey-version>1.0.2</jersey-version> -->
 		<war.name>um-ws</war.name>
 	</properties>
 </project>
